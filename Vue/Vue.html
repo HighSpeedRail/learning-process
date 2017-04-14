@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="tags"> <br>
+    <p>{{tags.tagOne}}</p>
+    <p>{{tags}}</p>
+    <button v-on:click="addTag">addTag</button>
+    <button v-on:click="showTag">showTag</button>
+</div>
+
+<script src="./vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            tags: {}
+        },
+        methods: {
+            addTag: function () {
+                this.$set(this.tags, 'tagOne', 'tagOne');
+                console.log(this.tags.tagOne);
+            },
+            showTag: function () {
+                console.log(this.tags);
+            }
+        }
+    });
+</script>
+</body>
+</html>
