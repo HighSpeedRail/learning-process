@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="newWeb()">open a new web</button>
+<button onclick="closeTab()">open the new web</button>
+<p id="p">当前还没有打开子窗口</p>
+<script>
+    var p = document.getElementById('p');
+    var arr = [];
+    function newWeb() {
+        arr.push(window.open('./children.html'));
+        p.innerHTML = '子窗口已打开';
+    }
+    function closeTab() {
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].close();
+        }
+    }
+</script>
+</body>
+</html>
