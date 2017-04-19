@@ -9,7 +9,7 @@
         年龄：
       </label>
       <input type="number" v-model="age" id="age">
-      <label for="garden">
+      <label for="gender">
         性别：
       </label>
       <select id="gender" @change="gender_fn(gender)" v-model="gender">
@@ -46,18 +46,19 @@
         age: '',
         gender: 1,
         userList: [
-          { username: 'Li Lei', age: '12', gender: 0}
+          {username: 'Li Lei', age: '12', gender: 0}
         ]
       }
     },
     methods: {
       gender_fn: function () {
         this.gender = arguments[0];
-        console.log(this.gender);
-        console.log(this.gender ? 'nan' : 'nv');
       },
       submit_data: function () {
-        console.log(this.username, this.age, this.gender);
+      	if (!/\d+/.test(gender)) {
+      		alert('age is wrong');
+      		return;
+        }
         this.userList.push({
           username: this.username,
           age: this.age,
