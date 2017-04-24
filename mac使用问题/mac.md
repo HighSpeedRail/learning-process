@@ -37,3 +37,30 @@
 ### 设置右键文件夹出现新建位于文件夹位置的终端窗口
 
 设置 - 键盘 - 快捷键 - 服务 - 勾选（新建位于文件夹位置的终端窗口）
+
+### Mac 上建立并使用 mongodb 数据库
+
+1. 去官网下载[压缩包](https://www.mongodb.com/download-center?jmp=nav#community)
+2. 将下载好的压缩包解压（位置随意）
+3. 创建存放数据的文件夹（位置随意）并设置权限，也可以在终端中输入命令来实现：
+
+    > sudo mkdir -p /data/db (存放数据的目录，可随意设置)
+      sudo chown -R username /data
+4. 在终端中进入到第二步解压好的文件夹的 bin 目录下，输入:
+
+    > ./mongod --dbpath 数据存放路径
+
+    如果看到 waiting for connections on port 27017 时，可以打开浏览器输入： localhost:27017，如果看到 It looks like you are trying to access MongoDB over HTTP on the native driver port 说明连接成功
+5. 新建一个终端并进入到 bin 目录下，输入 ./mongo 即可连接到数据库进行操作
+6. mongodb 数据库的基本操作
+    * show dbs -- 查询所有的数据库
+    * show collections -- 查询当前数据库下的所有数据表
+    * use myDbs -- 建立一个名为 myDbs 的数据库，当这个库存在时则是切换到这个数据库中
+    * db.dropDatabase() -- 删除当前所在的数据库
+    * db.myDbs.insert(data) -- 新增数据
+    * db.myDbs.update(查找条件，替换的数据) -- 更新数据
+    * db.myDbs.remove(data) -- 删除数据
+    * db.myDbs.find(查找条件) -- 查询数据，条件可不填
+    * db.myDbs.find().sort(排序条件) -- 根据条件进行查找并排序
+    * db.myDbs.find().count() -- 限制查找的条件
+    [其余命令](http://www.cnblogs.com/liyonghui/p/mongodb.html)
