@@ -1,5 +1,54 @@
 # Vue
 
+### Vue实例
+
+* el - 挂载的元素
+
+    ```
+    var data = { a: 1 }
+    var vm = new Vue({
+      el: '#example',
+      data: data
+    })
+    vm.$data === data // -> true
+    vm.$el === document.getElementById('example') // -> true
+    // $watch 是一个实例方法
+    vm.$watch('a', function (newVal, oldVal) {
+      // 这个回调将在 `vm.a`  改变后调用
+    })
+    ```
+
+    > 不要在实例属性或者回调函数中使用回掉函数，因为 this 指向的并不是 Vue 实例
+
+* data - 每个 Vue 实例都会代理其 data 对象里所有的属性
+
+    ```
+    var data = { abc: 1 }
+    var vm = new Vue{
+        data: data
+    };
+
+    vm.abc === data.abc // true
+    ```
+
+* 生命周期
+
+  * beforeCreate
+
+  * created
+
+  * beforeMount
+
+  * mounted
+
+  * beforeUpdate
+
+  * updated
+
+  * beforeDestroy
+
+  * destroyed
+
 ### 核心基本功能
 
 * v-model 表单数据绑定
@@ -210,8 +259,6 @@
         })
         ```
 
-
-
 ### 构建
 
 默认 NPM 包导出的是运行时构建。为了使用独立构建，在 webpack 配置中添加下面的别名：
@@ -239,3 +286,21 @@ resolve: {
 [Vue中文官网](https://cn.vuejs.org/)
 
 [Vue-GitHub](https://github.com/vuejs/vue)
+
+### 开发过程中遇到的问题及解决方案
+
+* 页面渲染完成时调用某些方法
+
+    修改数据后调用 this.$nextTick，首次加载时在 mounted 函数里面调用 this.$nextTick
+
+    ```
+    this.$nextTick(function(){
+        //DOM已更新
+    })
+    ```
+
+* 如何实现在函数中触发路由跳转
+
+    ```
+    this.$router.push({path:'路由'});
+    ```
