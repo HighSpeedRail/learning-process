@@ -37,3 +37,19 @@
 ### 设置右键文件夹出现新建位于文件夹位置的终端窗口
 
 设置 - 键盘 - 快捷键 - 服务 - 勾选（新建位于文件夹位置的终端窗口）
+
+### 最简单的翻墙方式
+
+自动代理配置 url为： https://raw.githubusercontent.com/bannedbook/fanqiang/master/ios/ios.pac
+
+### 查看IP地址
+
+* 在终端中输入 ifconfig 查看
+
+* 设置 - 网络 - 高级 - 　TCP/IP
+
+### Mac 访问windows共享文件夹
+
+* 打开 finder，然后 command + K 打开连接服务器对话框，服务器地址：smb:// + IP地址，后续可能需要输入用户名及密码来登录进去
+
+* 以后可以通过网络窗口找到之前添加过的windows资源，然后用组合键 shift + command + K 打开该窗口即可。
