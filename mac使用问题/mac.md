@@ -54,7 +54,7 @@
 * 打开 finder，然后 command + K 打开连接服务器对话框，服务器地址：smb:// + IP地址，后续可能需要输入用户名及密码来登录进去
 
 * 以后可以通过网络窗口找到之前添加过的windows资源，然后用组合键 shift + command + K 打开该窗口即可。
-=======
+
 ### Mac 上建立并使用 mongodb 数据库
 
 1. 去官网下载[压缩包](https://www.mongodb.com/download-center?jmp=nav#community)
@@ -81,4 +81,3 @@
     * db.myDbs.find().sort(排序条件) -- 根据条件进行查找并排序
     * db.myDbs.find().count() -- 限制查找的条件
     [其余命令](http://www.cnblogs.com/liyonghui/p/mongodb.html)
->>>>>>> df92aab034517eb9082e1154384803e2673e17e9
