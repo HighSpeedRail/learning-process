@@ -67,6 +67,8 @@
 
     > ./mongod --dbpath 数据存放路径
 
+    > 注意：在windows下，破解版 MongoVUE 1.6.9 不能正常显示3.2及以上版本 mongodb 数据库的 collection，这是因为3.2版本之后默认引擎启动的是 wiredTiger 引擎，此时需要重启 MongoDB 服务器，用到的命令是：mongod -storageEngine mmapv1 -dbpath 数据存储路径，这样在用 MongoVUE 连接数据库即可
+
     如果看到 waiting for connections on port 27017 时，可以打开浏览器输入： localhost:27017，如果看到 It looks like you are trying to access MongoDB over HTTP on the native driver port 说明连接成功
 5. 新建一个终端并进入到 bin 目录下，输入 ./mongo 即可连接到数据库进行操作
 6. mongodb 数据库的基本操作
@@ -74,7 +76,7 @@
     * show collections -- 查询当前数据库下的所有数据表
     * use myDbs -- 建立一个名为 myDbs 的数据库，当这个库存在时则是切换到这个数据库中
     * db.dropDatabase() -- 删除当前所在的数据库
-    * db.myDbs.insert(data) -- 新增数据
+    * db.myDbs.insert／create(data) -- 新增数据
     * db.myDbs.update(查找条件，替换的数据) -- 更新数据
     * db.myDbs.remove(data) -- 删除数据
     * db.myDbs.find(查找条件) -- 查询数据，条件可不填
