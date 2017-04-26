@@ -83,3 +83,19 @@
     * db.myDbs.find().sort(排序条件) -- 根据条件进行查找并排序
     * db.myDbs.find().count() -- 限制查找的条件
     [其余命令](http://www.cnblogs.com/liyonghui/p/mongodb.html)
+
+### Mac 显示隐藏文件
+
+* 早期的OS X（10.6~10.8）系统可以使用如下两条命令来开始或者关闭系统隐藏文件的显示：
+  ```
+  defaults write com.apple.Finder AppleShowAllFiles Yes && killall Finder //显示隐藏文件
+  defaults write com.apple.Finder AppleShowAllFiles No && killall Finder //不显示隐藏文件
+  ```
+  当升级到OS X 10.9 Mavericks版本之后，这两条命令需要做一些修改，变成了如下命令：
+  ```
+  defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder //显示隐藏文件
+  defaults write com.apple.finder AppleShowAllFiles No && killall Finder //不显示隐藏文件
+  ```
+  > OS X 10.9 Mavericks需要将Finder修改成“finder”才行，第一个字母换成小写的“f”
+
+*
